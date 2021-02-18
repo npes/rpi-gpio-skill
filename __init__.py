@@ -6,11 +6,11 @@ class RpiGpio(MycroftSkill):
         MycroftSkill.__init__(self)
 
     @intent_file_handler('gpio1.rpi.intent')
-    def handle_gpio_rpi(self, message):
+    def handle_gpio1_rpi(self, message):
         self.speak_dialog('gpio1.rpi')
 
     @intent_file_handler('gpio2.rpi.intent')
-    def handle_gpio_rpi(self, message):
+    def handle_gpio2_rpi(self, message):
         self.speak_dialog('gpio2.rpi')
 
 
