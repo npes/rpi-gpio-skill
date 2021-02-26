@@ -10,7 +10,7 @@ class RpiGpio(MycroftSkill):
     def handle_gpio_rpi(self, message):
         self.speak_dialog('gpio.rpi')
 
-    @intent_handler(IntentBuilder('GpioIntent')).optionally('pin')
+    @intent_handler(IntentBuilder('GpioIntent').optionally('pin'))
     def handle_gpio(self, message):
         pin = message.data.get('pin')
         if pin == 'gpio one':
