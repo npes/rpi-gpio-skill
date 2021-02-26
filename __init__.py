@@ -14,17 +14,17 @@ class RpiGpio(MycroftSkill):
     def handle_gpio(self, message):
         pin = message.data.get('pin')
         command = message.data.get('command')
-        if pin == 'gpio one' | 'gpio 1':
+        if pin == 'gpio one':
             if command == 'on':
                 self.speak_dialog('gpio one is on')
             elif command == 'off':
                 self.speak_dialog('gpio one is off')
-        elif pin == 'gpio two' | 'gpio 2':
+        elif pin == 'gpio two':
             if command == 'on':
                 self.speak_dialog('gpio two is on')
             elif command == 'off':
                 self.speak_dialog('gpio two is off')
-        elif pin == 'gpio three' | 'gpio 3':
+        elif pin == 'gpio three':
             if command == 'on':
                 self.speak_dialog('gpio three is on')
             elif command == 'off':
