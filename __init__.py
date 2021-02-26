@@ -24,8 +24,8 @@ class RpiGpio(MycroftSkill):
                 GPIO.set(gpio_name,"On")
         else:
             GPIO.set(gpio_name,"Off")
-        status = GPIO.get(gpio_name)
-        self.speak("Led is %s" % status)
+        #status = GPIO.get(gpio_name)
+        #self.speak("Led is %s" % status)
 
     @intent_handler(IntentBuilder('GpioIntent').require('pin').require('command'))
     def handle_gpio(self, message):
