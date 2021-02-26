@@ -1,6 +1,6 @@
 from adapt.intent import IntentBuilder
 from mycroft import MycroftSkill, intent_file_handler, intent_handler
-import GPIO
+from GPIO import *
 
 class RpiGpio(MycroftSkill):
     def __init__(self):
