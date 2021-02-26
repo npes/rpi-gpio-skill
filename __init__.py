@@ -10,15 +10,25 @@ class RpiGpio(MycroftSkill):
     def handle_gpio_rpi(self, message):
         self.speak_dialog('gpio.rpi')
 
-    @intent_handler(IntentBuilder('GpioIntent').optionally('pin'))
+    @intent_handler(IntentBuilder('GpioIntent').optionally('pin').optionally('command'))
     def handle_gpio(self, message):
         pin = message.data.get('pin')
-        if pin == 'gpio one':
-            self.speak_dialog('gpio one is on')
-        elif pin == 'gpio two':
-            self.speak_dialog('gpio two is on')
-        elif pin == 'gpio three':
-            self.speak_dialog('gpio three is on')
+        command = message.data.get('command')
+        if pin == 'gpio one' or '1':
+            if command == 'on':
+                self.speak_dialog('gpio one is on')
+            elif command == 'off':
+                self.speak_dialog('gpio one is off')
+        elif pin == 'gpio two' or '2':
+            if command == 'on':
+                self.speak_dialog('gpio two is on')
+            elif command = 'off':
+                self.speak_dialog('gpio two is off')
+        elif pin == 'gpio three' or '3':
+            if command == 'on':
+                self.speak_dialog('gpio two is on')
+            elif command = 'off':
+                self.speak_dialog('gpio two is off')
 
 
 def create_skill():
