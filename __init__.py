@@ -2,7 +2,6 @@ from adapt.intent import IntentBuilder
 from mycroft import MycroftSkill, intent_file_handler, intent_handler
 from os.path import dirname, abspath
 import sys
-
 sys.path.append(abspath(dirname(__file__)))
 import GPIO
 
