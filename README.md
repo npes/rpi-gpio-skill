@@ -19,3 +19,6 @@ Raspberry pi
 
 ## Tags
 
+## install 
+
+mycroft-msm install https://github.com/npes/rpi-gpio-skill.git
