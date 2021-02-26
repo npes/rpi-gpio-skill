@@ -22,12 +22,12 @@ class RpiGpio(MycroftSkill):
         elif pin == 'gpio two' or '2':
             if command == 'on':
                 self.speak_dialog('gpio two is on')
-            elif command = 'off':
+            elif command == 'off':
                 self.speak_dialog('gpio two is off')
         elif pin == 'gpio three' or '3':
             if command == 'on':
                 self.speak_dialog('gpio two is on')
-            elif command = 'off':
+            elif command == 'off':
                 self.speak_dialog('gpio two is off')
 
 
