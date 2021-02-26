@@ -1,30 +1,24 @@
-from mycroft import MycroftSkill, intent_file_handler
+from adapt.intent import IntentBuilder
+from mycroft import MycroftSkill, intent_file_handler, intent_handler
 
 
 class RpiGpio(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
-        self.gpio_Status = [False, False]
 
     @intent_file_handler('gpio1.rpi.intent')
-    def handle_gpio1_rpi(self, message):
-        self.speak_dialog('gpio1.rpi')
-        if self.gpio_Status [0] == False:
-            self.gpio_Status [0] = True
-        else:
-            self.gpio_Status [0] = False 
+    def handle_gpio_rpi(self, message):
+        self.speak_dialog('gpio.rpi')
 
-    @intent_file_handler('gpio2.rpi.intent')
-    def handle_gpio2_rpi(self, message):
-        self.speak_dialog('gpio2.rpi')
-        if self.gpio_Status [1] == False:
-            self.gpio_Status [1] = True
-        else:
-            self.gpio_Status [1] = False
-
-    @intent_file_handler('gpioStatus.rpi.intent')
-    def handle_gpioStatus_rpi(self, message):
-        self.speak(f'gpio1 status is{self.gpio_Status[0]} gpio2 status is{self.gpio_Status[1]}')
+    @intent_handler(IntentBuilder('GpioIntent')).optionally('pin')
+    def handle_gpio(self, message):
+        pin = message.data.get('pin')
+        if pin == 'gpio one':
+            self.speak_dialog('gpio one is on')
+        elif pin == 'gpio two':
+            self.speak_dialog('gpio two is on')
+        elif pin == 'gpio three':
+            self.speak_dialog('gpio three is on')
 
 
 def create_skill():
