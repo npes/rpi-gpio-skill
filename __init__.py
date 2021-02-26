@@ -18,8 +18,8 @@ class RpiGpio(MycroftSkill):
         """
         if GPIO.get(gpio_name)!="On":
                 GPIO.set(gpio_name,"On")
-            else:
-                GPIO.set(gpio_name,"Off")
+        else:
+            GPIO.set(gpio_name,"Off")
         status = GPIO.get(gpio_name)
         self.speak("Led is %s" % status)
 
