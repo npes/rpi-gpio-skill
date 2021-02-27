@@ -8,7 +8,7 @@ import GPIO
 class RpiGpio(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
-        self.gpio_name
+        #self.gpio_name
 
        
     # @intent_file_handler('gpio.rpi.intent')
@@ -24,9 +24,9 @@ class RpiGpio(MycroftSkill):
         #         GPIO.set(self.gpio_name,"On")
         # else:
         #     GPIO.set(self.gpio_name,"Off")
-        status = GPIO.get(self.gpio_name)
+        #status = GPIO.get(self.gpio_name)
         #self.speak("GPIO is %s" % status)
-        self.speak(f'{self.gpio_name} is {status}')
+        #self.speak(f'{self.gpio_name} is {status}')
 
     @intent_handler(IntentBuilder('GpioIntent').require('pin').require('command'))
     def handle_gpio(self, message):
