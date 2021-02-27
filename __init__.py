@@ -8,23 +8,25 @@ import GPIO
 class RpiGpio(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
+        self.gpio_name
 
        
     # @intent_file_handler('gpio.rpi.intent')
     # def handle_gpio_rpi(self, message):
     #     self.speak_dialog('gpio.rpi')
 
-    def on_led_change(self, gpio_name):
+    def on_led_change(self):
         """used to report the state of the led.
         This is attached to the on change event.  And will speak the
         status of the led.
         """
-        if GPIO.get(gpio_name)!="On":
-                GPIO.set(gpio_name,"On")
-        else:
-            GPIO.set(gpio_name,"Off")
-        #status = GPIO.get(gpio_name)
-        #self.speak("Led is %s" % status)
+        # if GPIO.get(self.gpio_name)!="On":
+        #         GPIO.set(self.gpio_name,"On")
+        # else:
+        #     GPIO.set(self.gpio_name,"Off")
+        status = GPIO.get(self.gpio_name)
+        #self.speak("GPIO is %s" % status)
+        self.speak(f'{self.gpio_name} is {status}')
 
     @intent_handler(IntentBuilder('GpioIntent').require('pin').require('command'))
     def handle_gpio(self, message):
@@ -34,24 +36,32 @@ class RpiGpio(MycroftSkill):
 
         if command == 'on':
             if pin == 'gpio one':
-                #self.speak_dialog('gpio 1 is on')
-                self.on_led_change('GPIO1')
+                #self.on_led_change('GPIO1')
+                self.speak_dialog('gpio 1 is on')
+                GPIO.set('GPIO1',"On")
             elif pin == 'gpio two':
-                self.on_led_change('GPIO2')
+                self.speak_dialog('gpio 2 is on')
+                GPIO.set('GPIO2',"On")
             if pin == 'gpio 1':
-                self.on_led_change('GPIO1')
+                self.speak_dialog('gpio 1 is on')
+                GPIO.set('GPIO1',"On")
             elif pin == 'gpio 2':
-                self.on_led_change('GPIO2')
+                self.speak_dialog('gpio 2 is on')
+                GPIO.set('GPIO2',"On")
 
         elif command == 'off':
             if pin == 'gpio one':
-                self.on_led_change('GPIO1')
+                self.speak_dialog('gpio 1 is on')
+                GPIO.set('GPIO1',"Off")
             elif pin == 'gpio two':
-                self.on_led_change('GPIO2')
+                self.speak_dialog('gpio 2 is on')
+                GPIO.set('GPIO2',"Off")
             if pin == 'gpio 1':
-                self.on_led_change('GPIO1')
+                self.speak_dialog('gpio 1 is on')
+                GPIO.set('GPIO1',"Off")
             elif pin == 'gpio 2':
-                self.on_led_change('GPIO2')
+                self.speak_dialog('gpio 2 is on')
+                GPIO.set('GPIO2',"Off")
         else:
             self.speak_dialog('i do not understand you, please try again')
 
