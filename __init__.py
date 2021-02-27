@@ -51,16 +51,16 @@ class RpiGpio(MycroftSkill):
 
         elif command == 'off':
             if pin == 'gpio one':
-                self.speak_dialog('gpio 1 is on')
+                self.speak_dialog('gpio 1 is off')
                 GPIO.set('GPIO1',"Off")
             elif pin == 'gpio two':
-                self.speak_dialog('gpio 2 is on')
+                self.speak_dialog('gpio 2 is off')
                 GPIO.set('GPIO2',"Off")
             if pin == 'gpio 1':
-                self.speak_dialog('gpio 1 is on')
+                self.speak_dialog('gpio 1 is off')
                 GPIO.set('GPIO1',"Off")
             elif pin == 'gpio 2':
-                self.speak_dialog('gpio 2 is on')
+                self.speak_dialog('gpio 2 is off')
                 GPIO.set('GPIO2',"Off")
         else:
             self.speak_dialog('i do not understand you, please try again')
